@@ -1,0 +1,137 @@
+@import url("https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Work Sans", sans-serif;
+}
+html {
+  font-size: 62.5%;
+  /* 1 rem = 10px */
+  overflow-x: hidden;
+}
+body {
+  overflow-x: hidden;
+}
+
+.header {
+  padding: 0 4.8rem;
+  height: 10rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(175, 155, 172);
+}
+.navbar-list {
+  display: flex;
+  gap: 5rem;
+  list-style: none;
+  position: relative;
+}
+.navbar-link:link,
+.navbar-link:visited {
+  font-size: 2rem;
+  color: #080808;
+  display: inline-block;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.5s;
+}
+.navbar-link:hover,
+.navbar-link:active {
+  color: #6e6d6d;
+}
+.navbar-link:active:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: white;
+}
+/* Hero and service section start */
+
+.hero-section,
+.service-section {
+  padding: 10rem 0;
+  background-color: rgb(214, 214, 181);
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.service-section {
+  background-color: rgb(149, 165, 117);
+}
+.hero-section p,
+.service-section p {
+  font-size: 3rem;
+}
+.mobile-nav-icon {
+  font-size: 4rem;
+  color: rgb(92, 90, 90);
+}
+.mobile-navbar-btn {
+  background-color: transparent;
+  cursor: pointer;
+  display: none;
+}
+.mobile-nav-icon[name="close-outline"] {
+  display: none;
+}
+
+/* Responsive codes */
+@media (max-width: 62em) {
+  .mobile-navbar-btn {
+    display: block;
+    z-index: 999;
+    border: 2px solid rgb(97, 96, 96);
+  }
+  .navbar {
+    /* display: none; */
+    width: 100%;
+    height: 100vh;
+    background-color: #e6e3e3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    /* to get the transition */
+    transform: translateX(100%);
+    transition: all 0.5 linear;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+  }
+  .navbar-list {
+    flex-direction: column;
+    align-items: center;
+  }
+  .active .navbar {
+    opacity: 1;
+    pointer-events: auto;
+    visibility: visible;
+    transform: translateX(0);
+  }
+  .active .mobile-navbar-btn .mobile-nav-icon[name="close-outline"] {
+    display: block;
+  }
+  .active .mobile-navbar-btn .mobile-nav-icon[name="menu-outline"] {
+    display: none;
+  }
+}
+
+/* Below 560px */
+
+@media (max-width) {
+  .header {
+    padding: 0 2.4rem;
+  }
+  .header .logo {
+    width: 60%;
+  }
+}
